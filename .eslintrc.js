@@ -6,7 +6,8 @@ module.exports = {
     parser: 'babel-eslint'
   },
   globals: {
-    google: true
+    google: true,
+    WOW: true
   },
   env: {
     browser: true,

@@ -1,6 +1,6 @@
 # StatNLP Crawling Tweets Website
 
-## Build Setup
+## Development
 
 ``` bash
 # install dependencies
