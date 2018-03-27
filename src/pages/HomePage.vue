@@ -124,7 +124,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(item, index) in getTweets" v-bind:key="index">
+                  <tr v-for="(item, index) in getTweets.slice().reverse()" v-bind:key="index">
                     <th scope="row">{{index}}</th>
                     <td>{{item.ID}}</td>
                     <td>{{item.UserName}}</td>
