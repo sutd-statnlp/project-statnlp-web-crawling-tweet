@@ -1,8 +1,9 @@
 
 import axios from 'axios'
 import ServerService from '@/services/server-service'
+import StorageService from '@/services/storage-service'
+import DataService from '@/services/data-service'
 import DataUtil from '@/util/data-util'
-import Papa from 'papaparse'
 
 export default {
   namespaced: true,
@@ -33,6 +34,7 @@ export default {
       formData.append('maxMinute', payload.maxMinute)
       axios.post(url, formData).then(response => {
         state.tweetResponse = DataUtil.responseToTweetResponse(response, ServerService.getDataEndpoint())
+        StorageService.saveTweetFileName(state.tweetResponse.fileName)
       }).catch(function (error) {
         console.log(error)
       })
@@ -48,16 +50,29 @@ export default {
       })
     },
     loadCsv (state) {
-      let url = ServerService.getDataEndpoint() + state.tweetResponse.fileName
-      Papa.parse(url, {
-        header: true,
-        dynamicTyping: true,
-        download: true,
-        complete: (results, file) => {
-          results.data.pop()
-          state.tweets = results.data
-        }
-      })
+      DataService.loadTweetsFromCsv(state)
+    },
+    loadFileName (state) {
+      let fileName = StorageService.getTweetFileName()
+      if (fileName != null) {
+        let url = ServerService.getGetCrawlingChannelEndpoint()
+        axios.get(url, {
+          params: {
+            fileName: fileName
+          }
+        }).then(function (response) {
+          state.tweetResponse = DataUtil.responseToTweetResponse(response, ServerService.getDataEndpoint())
+          if (state.tweetResponse.isStreaming) {
+            this.interval = setInterval(function () {
+              DataService.loadTweetsFromCsv(state)
+            }, 800)
+          } else {
+            DataService.loadTweetsFromCsv(state)
+          }
+        }).catch(function (error) {
+          console.log(error)
+        })
+      }
     }
   },
   actions: {
@@ -65,10 +80,19 @@ export default {
       context.commit('crawlTweets', payload)
     },
     stopCrawling (context) {
+      clearInterval(this.interval)
       context.commit('stopCrawling')
     },
-    loadCsv (context) {
-      context.commit('loadCsv')
+    loadIntervalCsv (context, payload) {
+      this.interval = setInterval(function () {
+        context.commit('loadCsv')
+      }, 800)
+      setTimeout(() => {
+        context.commit('stopCrawling')
+      }, payload.maxMinute * 60000)
+    },
+    loadFileName (context) {
+      context.commit('loadFileName')
     }
   }
 }

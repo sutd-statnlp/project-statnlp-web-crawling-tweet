@@ -22,6 +22,9 @@ class ServerService {
   getStopCrawlingTweetEndpoint () {
     return this.getEndpoint() + '/api/tweets/stop'
   }
+  getGetCrawlingChannelEndpoint () {
+    return this.getEndpoint() + '/api/tweets/channel'
+  }
 }
 
 export default new ServerService()
