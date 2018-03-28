@@ -108,8 +108,9 @@
           <!--Grid column-->
           <div class="col-md-12">
             <div class="text-center">
-                <button class="btn btn-mdb-color waves-effect waves-light" v-on:click="stopCrawling()" v-show="getTweetResponse.isStreaming">Stop Crawling</button>
                 <a :href="getTweetResponse.link" class="btn btn-primary waves-effect waves-light" target="_blank" v-show="getTweetResponse.link">Download CSV</a>
+                <button class="btn btn-mdb-color waves-effect waves-light" v-on:click="stopCrawling()" v-show="getTweetResponse.isStreaming">Stop Crawling</button>
+                <button class="btn btn-primary waves-effect waves-light" v-on:click="shrinkTable()" v-show="getTweetResponse.link && !getTweetResponse.isStreaming">Shrink Table</button>
             </div>
              <BouncingLoader v-show="getTweetResponse.isStreaming" />
              <div class="table-responsive" v-show="getTweetResponse.link">
@@ -125,7 +126,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(item, index) in getTweets.slice().reverse()" v-bind:key="index">
-                    <th scope="row">{{index}}</th>
+                    <th scope="row">{{getTweets.length - index}}</th>
                     <td>{{item.ID}}</td>
                     <td>{{item.UserName}}</td>
                     <td>{{item.CreatedAt}}</td>
@@ -243,15 +244,17 @@ export default {
         maxMinute: 1
       },
       isLocated: false,
-      smoothScroll: null
+      smoothScroll: null,
+      table: null
     }
   },
   created () {
+    this.$store.dispatch('tweet/loadFileName')
+  },
+  mounted () {
     this.smoothScroll = new SmoothScroll('a[href*="#sec"]', {
       offset: 80
     })
-  },
-  mounted () {
     this.initMap(this.payload)
   },
   methods: {
@@ -261,25 +264,13 @@ export default {
         this.payload.location = ''
       }
       this.$store.dispatch('tweet/crawlTweets', this.payload)
-      this.interval = setInterval(function () {
-        this.loadCsv()
-      }.bind(this), 800)
-      setTimeout(() => {
-        this.stopCrawling()
-      }, this.payload.maxMinute * 60000)
+      this.$store.dispatch('tweet/loadIntervalCsv', this.payload)
       if (this.table) {
         this.table.destroy()
       }
     },
     stopCrawling () {
-      clearInterval(this.interval)
       this.$store.dispatch('tweet/stopCrawling')
-      this.table = $('#table-tweet').DataTable({
-        destroy: true
-      })
-    },
-    loadCsv () {
-      this.$store.dispatch('tweet/loadCsv')
     },
     initMap (payload) {
       let mapProp = {
@@ -295,6 +286,11 @@ export default {
       })
       google.maps.event.addListener(map, 'click', function (event) {
         map.panTo(event.latLng)
+      })
+    },
+    shrinkTable () {
+      this.table = $('#table-tweet').DataTable({
+        destroy: true
       })
     }
   },
