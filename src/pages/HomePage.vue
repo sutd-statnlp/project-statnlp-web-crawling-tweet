@@ -1,6 +1,6 @@
 <template>
   <div class="m-home">
-    <div id="sec-intro" class="view full-page-intro" style="background-image: url('./static/img/header-min.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div id="sec-intro" class="view full-page-intro" style="background-image: url('./static/img/header-bird-min.jpg'); background-repeat: no-repeat; background-size: cover;">
 
       <!-- Mask & flexbox options-->
       <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
