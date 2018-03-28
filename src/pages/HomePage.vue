@@ -43,7 +43,7 @@
                   <!-- Form -->
                   <form name="" class="m-form" v-on:submit.prevent="onSubmit">
                     <!-- Heading -->
-                    <div class="row">
+                    <div class="row justify-content-center">
                       <div class="md-form">
                         <i class="fa fa-key prefix grey-text"></i>
                         <input type="text" id="keyword" name="keyword" v-model="payload.keyword" class="form-control">
@@ -55,7 +55,7 @@
                         <label for="language">Language</label>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row justify-content-center">
                       <div class="md-form">
                         <i class="fa fa-user prefix grey-text"></i>
                         <input type="text" id="userId" name="userId" v-model="payload.userId" class="form-control">
@@ -320,5 +320,10 @@ export default {
   }
   #maxMinute {
     width: 165px;
+  }
+  @media (max-width: 575.98px) {
+    #sec-intro .container {
+      padding-top: 80px;
+    }
   }
 </style>
