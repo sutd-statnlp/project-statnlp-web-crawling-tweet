@@ -29,6 +29,11 @@
                 <i class="fa fa-github"></i>
               </a>
             </li>
+            <li class="nav-item">
+            <a href="#sec-apps" class="nav-link border border-light rounded">
+              <i class="fa fa-rocket mr-2"></i>APPS
+            </a>
+          </li>
           </ul>
         </div>
       </div>

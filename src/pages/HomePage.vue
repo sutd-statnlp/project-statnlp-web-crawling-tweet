@@ -140,7 +140,55 @@
         <!--Grid row-->
       </section>
       <!--Section: Main info-->
-        <section id="sec-option" class="mt-2 wow fadeIn mb-5">
+      <section id="sec-apps" class="mt-5 wow fadeIn">
+
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-md-6 mb-4">
+
+            <img :src="appImg" class="img-fluid z-depth-1-half" alt="">
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-6 mb-4">
+
+            <!-- Main heading -->
+            <h3 class="h3 mb-3">StatNLP Tweets Crawling Apps</h3>
+            <p>Do not want to go to the website !</p>
+            <p>Tweets Crawling apps are available for you.</p>
+            <!-- Main heading -->
+
+            <hr>
+
+            <p>
+              Same experiences by just one click to download apps !
+            </p>
+
+            <!-- CTA -->
+            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-0.0.0.dmg.zip" class="btn btn-primary btn-md">MacOS
+              <i class="fa fa-download ml-1"></i>
+            </a>
+            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-0.0.0.exe.zip" class="btn btn-primary btn-md">Windows
+              <i class="fa fa-download ml-1"></i>
+            </a>
+            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-0.0.0-x86_64.zip" class="btn btn-primary btn-md">Linux
+              <i class="fa fa-download ml-1"></i>
+            </a>
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </section>
+      <!--Section: Main info-->
+
+      <!--Section: Main info-->
+      <section id="sec-option" class="mt-2 wow fadeIn mb-5">
         <hr class="my-5">
          <!--Grid column-->
           <h2 class="my-5 h3 text-center">Popular Options</h2>
@@ -224,6 +272,7 @@
 </template>
 
 <script>
+import appImg from '@/assets/apps.png'
 import OptionInfo from '@/components/OptionInfo'
 import BouncingLoader from '@/components/BouncingLoader'
 import SmoothScroll from 'smooth-scroll'
@@ -236,6 +285,7 @@ export default {
   name: 'HomePage',
   data () {
     return {
+      appImg: appImg,
       payload: {
         keyword: '',
         language: '',
@@ -324,6 +374,11 @@ export default {
   @media (max-width: 575.98px) {
     #sec-intro .container {
       padding-top: 80px;
+    }
+  }
+  @media (min-width: 768px) {
+    #sec-intro .container {
+      padding-top: 20px;
     }
   }
 </style>
