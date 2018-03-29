@@ -113,7 +113,7 @@
                 <button class="btn btn-primary waves-effect waves-light" v-on:click="shrinkTable()" v-show="getTweetResponse.link && !getTweetResponse.isStreaming">Shrink Table</button>
             </div>
              <BouncingLoader v-show="getTweetResponse.isStreaming" />
-             <div class="table-responsive" v-show="getTweetResponse.link">
+             <div class="table-responsive mb-5" v-show="getTweetResponse.link">
               <table id="table-tweet" class="table table-striped display">
                 <thead>
                   <tr>
@@ -272,7 +272,7 @@
 </template>
 
 <script>
-import appImg from '@/assets/apps.png'
+import appImg from '@/assets/apps-min.png'
 import OptionInfo from '@/components/OptionInfo'
 import BouncingLoader from '@/components/BouncingLoader'
 import SmoothScroll from 'smooth-scroll'
