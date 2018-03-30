@@ -169,13 +169,13 @@
             </p>
 
             <!-- CTA -->
-            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-0.0.0.dmg.zip" class="btn btn-primary btn-md">MacOS
+            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling.dmg.zip" class="btn btn-primary btn-md">MacOS
               <i class="fa fa-download ml-1"></i>
             </a>
-            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-0.0.0.exe.zip" class="btn btn-primary btn-md">Windows
+            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling.exe.zip" class="btn btn-primary btn-md">Windows
               <i class="fa fa-download ml-1"></i>
             </a>
-            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-0.0.0-x86_64.zip" class="btn btn-primary btn-md">Linux
+            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-x86_64.zip" class="btn btn-primary btn-md">Linux
               <i class="fa fa-download ml-1"></i>
             </a>
           </div>
