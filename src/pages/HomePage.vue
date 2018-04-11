@@ -169,21 +169,23 @@
             </p>
 
             <!-- CTA -->
-            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling.dmg.zip" class="btn btn-primary btn-md">MacOS
+            <div class="m-sec-download">
+              <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling.dmg.zip" class="btn btn-primary btn-md">MacOS
               <i class="fa fa-download ml-1"></i>
-            </a>
-            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling.exe.zip" class="btn btn-primary btn-md">Windows
-              <i class="fa fa-download ml-1"></i>
-            </a>
-            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-x86_64.zip" class="btn btn-primary btn-md">Linux
-              <i class="fa fa-download ml-1"></i>
-            </a>
-            <a target="_blank" href="https://i.diawi.com/5daUmZ" class="btn btn-primary btn-md">Android
-              <i class="fa fa-download ml-1"></i>
-            </a>
-            <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-mobile-crawling-tweet/master/download/TweetCrawling.app.zip" class="btn btn-primary btn-md">IOS
-              <i class="fa fa-download ml-1"></i>
-            </a>
+              </a>
+              <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling.exe.zip" class="btn btn-primary btn-md">Windows
+                <i class="fa fa-download ml-1"></i>
+              </a>
+              <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-x86_64.zip" class="btn btn-primary btn-md">Linux
+                <i class="fa fa-download ml-1"></i>
+              </a>
+              <a target="_blank" href="https://i.diawi.com/5daUmZ" class="btn btn-primary btn-md">Android
+                <i class="fa fa-download ml-1"></i>
+              </a>
+              <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-mobile-crawling-tweet/master/download/TweetCrawling.app.zip" class="btn btn-primary btn-md">IOS
+                <i class="fa fa-download ml-1"></i>
+              </a>
+            </div>
           </div>
           <!--Grid column-->
 
@@ -386,5 +388,8 @@ export default {
     #sec-intro .container {
       padding-top: 20px;
     }
+  }
+  .m-sec-download a {
+    width: 140px;
   }
 </style>
