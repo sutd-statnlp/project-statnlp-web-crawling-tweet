@@ -179,7 +179,7 @@
               <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-desktop-crawling-tweet/master/download/TweetsCrawling-x86_64.zip" class="btn btn-primary btn-md">Linux
                 <i class="fa fa-download ml-1"></i>
               </a>
-              <a target="_blank" href="https://i.diawi.com/5daUmZ" class="btn btn-primary btn-md">Android
+              <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-mobile-crawling-tweet/master/download/TweetCrawling.apk.zip" class="btn btn-primary btn-md">Android
                 <i class="fa fa-download ml-1"></i>
               </a>
               <a href="https://raw.githubusercontent.com/sutd-statnlp/project-statnlp-mobile-crawling-tweet/master/download/TweetCrawling.app.zip" class="btn btn-primary btn-md">IOS
